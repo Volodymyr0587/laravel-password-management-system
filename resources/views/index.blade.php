@@ -9,5 +9,8 @@
 </head>
 <body>
 
+    <div class="h-screen flex justify-center items-center">
+        <p class="text-6xl">{{ $message }}</p>
+    </div>
 </body>
 </html>
