@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index', ['message' => 'Hello. Keep doing the project! :)']);
-});
+    return view('home');
+})->name('home');
 
 
