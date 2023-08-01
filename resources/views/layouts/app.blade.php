@@ -15,10 +15,10 @@
                 <a href="" class="p-2">Home</a>
             </li>
             <li>
-                <a href="" class="p-2">Dashboard</a>
+                <a href="{{ route('dashboard') }}" class="p-2">Dashboard</a>
             </li>
             <li>
-                <a href="" class="p-2">Passwords</a>
+                <a href="{{ route('passwords') }}" class="p-2">Passwords</a>
             </li>
         </ul>
 
@@ -30,7 +30,7 @@
                 <a href="" class="p-2">Login</a>
             </li>
             <li>
-                <a href="" class="p-2">Register</a>
+                <a href="{{ route('register') }}" class="p-2">Register</a>
             </li>
             <li>
                 <a href="" class="p-2">Logout</a>
