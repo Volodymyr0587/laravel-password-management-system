@@ -20,6 +20,7 @@
                                     <th scope="col" class="px-6 py-4">Login</th>
                                     <th scope="col" class="px-6 py-4">Password</th>
                                     <th scope="col" class="px-6 py-4">Info</th>
+                                    <th scope="col" class="px-6 py-4"></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -31,6 +32,15 @@
                                         <td class="whitespace-nowrap px-6 py-4">{{ $password->login }}</td>
                                         <td class="whitespace-nowrap px-6 py-4">{{ $password->password }}</td>
                                         <td class="whitespace-nowrap px-6 py-4">{{ $password->additional_info }}</td>
+                                        <td class="whitespace-nowrap px-6 py-4">
+                                            <form action="{{ route('passwords', $password) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="bg-red-500 text-white px-4 py-3 rounded font-medium">
+                                                    Delete
+                                                </button>
+                                            </form>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

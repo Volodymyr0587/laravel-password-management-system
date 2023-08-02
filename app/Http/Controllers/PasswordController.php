@@ -12,8 +12,8 @@ class PasswordController extends Controller
     {
         $user = auth()->user();
         $passwords = Password::whereBelongsTo($user)->get();
-
         $passwords = PaginateCollection::paginate($passwords, 5);
+
         return view('passwords.index', [
             'passwords' => $passwords
         ]);
@@ -41,5 +41,12 @@ class PasswordController extends Controller
         ]);
 
         return redirect('passwords');
+    }
+
+    public function destroy(Password $password)
+    {
+        $password->delete();
+
+        return back();
     }
 }

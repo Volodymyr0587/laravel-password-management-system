@@ -34,6 +34,7 @@ Route::get('/passwords', [PasswordController::class, 'index'])
     ->middleware('auth')
     ->name('passwords');
 Route::post('/passwords', [PasswordController::class, 'store']);
+Route::delete('/passwords', [PasswordController::class, 'destroy']);
 
 
 // Route::get('/passwords', function () {
