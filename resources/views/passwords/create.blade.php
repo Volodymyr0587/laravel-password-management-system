@@ -5,7 +5,7 @@
         <div class="w-10/12 bg-white p-6 rounded-lg">
 
             <div class="m-4">
-                <a href="{{ route('passwords') }}" class="text-blue-500">
+                <a href="{{ route('passwords') }}" class="text-blue-500 text-lg font-semibold hover:underline">
                     Back
                 </a>
             </div>
