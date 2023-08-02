@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PasswordController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
@@ -25,7 +26,12 @@ Route::get('/register', [RegisterController::class, 'index'])
     ->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
 
+Route::get('/passwords', [PasswordController::class, 'index'])
+    ->middleware('auth')
+    ->name('passwords');
+Route::post('/passwords', [PasswordController::class, 'store']);
 
-Route::get('/passwords', function () {
-    return view('passwords.index');
-})->middleware('auth')->name('passwords');
+
+// Route::get('/passwords', function () {
+//     return view('passwords.index');
+// })->middleware('auth')->name('passwords');
