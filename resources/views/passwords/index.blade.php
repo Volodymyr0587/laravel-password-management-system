@@ -50,7 +50,7 @@
                                 @endforeach
 
                                 @else
-                                    <p>No records yet.</p>
+                                    <p>No records yet on this page.</p>
                                 @endif
                             </tbody>
                         </table>
