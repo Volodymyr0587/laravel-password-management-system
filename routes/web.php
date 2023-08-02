@@ -26,6 +26,10 @@ Route::get('/register', [RegisterController::class, 'index'])
     ->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
 
+Route::get('/create', [PasswordController::class, 'create'])
+    ->middleware('auth')
+    ->name('create');
+
 Route::get('/passwords', [PasswordController::class, 'index'])
     ->middleware('auth')
     ->name('passwords');

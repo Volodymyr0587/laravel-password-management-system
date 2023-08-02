@@ -15,4 +15,9 @@ class Password extends Model
         'password',
         'additional_info'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

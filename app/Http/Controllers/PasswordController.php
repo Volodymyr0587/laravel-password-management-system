@@ -4,13 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Models\Password;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
 class PasswordController extends Controller
 {
     public function index()
     {
-        return view('passwords.index');
+        $user = auth()->user();
+        $passwords = Password::whereBelongsTo($user)->get();
+
+        return view('passwords.index', [
+            'passwords' => $passwords
+        ]);
+    }
+
+    public function create()
+    {
+        return view('passwords.create');
     }
 
     public function store(Request $request)
@@ -29,6 +38,6 @@ class PasswordController extends Controller
             'additional_info' => $request->additional_info
         ]);
 
-        return back();
+        return redirect('passwords');
     }
 }
