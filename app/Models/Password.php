@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Password extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'resource',
+        'login',
+        'password',
+        'additional_info'
+    ];
 }
