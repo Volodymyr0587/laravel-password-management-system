@@ -35,6 +35,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        {{ $passwords->links() }}
                     </div>
                 </div>
             </div>

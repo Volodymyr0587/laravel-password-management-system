@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Password;
 use Illuminate\Http\Request;
+use App\Utils\PaginateCollection;
 
 class PasswordController extends Controller
 {
@@ -12,6 +13,7 @@ class PasswordController extends Controller
         $user = auth()->user();
         $passwords = Password::whereBelongsTo($user)->get();
 
+        $passwords = PaginateCollection::paginate($passwords, 5);
         return view('passwords.index', [
             'passwords' => $passwords
         ]);
