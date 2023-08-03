@@ -34,6 +34,12 @@ Route::get('/passwords', [PasswordController::class, 'index'])
     ->middleware('auth')
     ->name('passwords');
 Route::post('/passwords', [PasswordController::class, 'store']);
+
+Route::get('/edit/{password}', [PasswordController::class, 'edit'])
+    ->middleware('auth')
+    ->name('edit');
+Route::put('/edit/{password}', [PasswordController::class, 'update']);
+
 Route::delete('/passwords/{password}', [PasswordController::class, 'destroy'])
     ->middleware('auth')
     ->name('passwords.destroy');

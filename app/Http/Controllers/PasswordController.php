@@ -43,6 +43,23 @@ class PasswordController extends Controller
         return redirect('passwords');
     }
 
+    public function edit(Password $password)
+    {
+        return view('passwords.edit', ['password' => $password]);
+    }
+
+    public function update(Password $password, Request $request)
+    {
+        $password->update($this->validate($request, [
+            'resource' => 'required',
+            'login' => 'required',
+            'password_to_resource' => 'required',
+            'additional_info' => 'nullable|max:1000'
+        ]));
+
+        return redirect('passwords');
+    }
+
     public function destroy(Password $password)
     {
         $this->authorize('delete', $password);

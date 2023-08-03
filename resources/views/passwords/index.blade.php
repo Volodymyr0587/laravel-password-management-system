@@ -36,6 +36,8 @@
                                             <td class="whitespace-nowrap px-4 py-4">{{ $password->password }}</td>
                                             <td class="whitespace-nowrap px-4 py-4">{{ $password->additional_info }}</td>
                                             <td class="whitespace-nowrap px-4 py-4">
+                                                <a href="{{ route('edit', $password->id) }}">Edit</a>
+                                            <td class="whitespace-nowrap px-4 py-4">
                                                 @can('delete', $password)
                                                     <form action="{{ route('passwords.destroy', $password) }}" method="POST">
                                                         @csrf
