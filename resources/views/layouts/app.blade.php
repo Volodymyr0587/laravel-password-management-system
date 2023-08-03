@@ -30,7 +30,7 @@
         <ul class="flex items-center">
             @auth
                 <li>
-                    <a href="" class="p-2 hover:text-blue-500">{{ auth()->user()->name }}</a>
+                    <a href="{{ route('userinfo') }}" class="p-2 hover:text-blue-500">{{ auth()->user()->name }}</a>
                 </li>
                 <li>
                     <form action="{{ route('logout') }}" method="POST" class="p-3 inline">

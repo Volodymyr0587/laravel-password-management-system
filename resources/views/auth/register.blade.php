@@ -65,7 +65,7 @@
                     class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('password_confirmation')
                     border-red-500 @enderror" value="">
 
-                    @error('password_')
+                    @error('password_confirmation')
                         <div class="text-red-500 mt-2 text-sm">
                             {{  $message }}
                         </div>
