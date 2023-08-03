@@ -36,14 +36,14 @@
                                             <td class="whitespace-nowrap px-4 py-4">{{ $password->password }}</td>
                                             <td class="whitespace-nowrap px-4 py-4">{{ $password->additional_info }}</td>
                                             <td class="whitespace-nowrap px-4 py-4">
-                                                <a href="{{ route('edit', $password->id) }}">Edit</a>
+                                                <a href="{{ route('edit', $password->id) }}" class="bg-purple-800 text-white px-4 py-3 rounded font-medium">Edit</a>
                                             <td class="whitespace-nowrap px-4 py-4">
                                                 @can('delete', $password)
                                                     <form action="{{ route('passwords.destroy', $password) }}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit"
-                                                            class="bg-red-500 text-white px-4 py-3 rounded font-medium"
+                                                            class="bg-red-500 text-white px-4 py-2 rounded font-medium"
                                                             onclick="return confirm('{{ __('Are you sure you want to delete the entry?') }}')">
                                                             Delete
                                                         </button>
