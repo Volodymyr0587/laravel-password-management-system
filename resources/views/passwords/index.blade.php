@@ -18,7 +18,7 @@
                             <thead class="border-b font-medium dark:border-neutral-500">
                                 <tr>
                                     <th scope="col" class="px-6 py-4">#</th>
-                                    <th scope="col" class="px-6 py-4">Resource (website, app, etc)</th>
+                                    <th scope="col" class="px-6 py-4">Resource</th>
                                     <th scope="col" class="px-6 py-4">Login</th>
                                     <th scope="col" class="px-6 py-4">Password</th>
                                     <th scope="col" class="px-6 py-4">Info</th>
@@ -28,27 +28,28 @@
                             <tbody>
 
                                 @if ($passwords->count())
-
-                                @foreach ($passwords as $password)
-                                    <tr class="border-b dark:border-neutral-500">
-                                        <td class="whitespace-nowrap px-6 py-4 font-medium">{{ $loop->iteration }}</td>
-                                        <td class="whitespace-nowrap px-6 py-4">{{ $password->resource }}</td>
-                                        <td class="whitespace-nowrap px-6 py-4">{{ $password->login }}</td>
-                                        <td class="whitespace-nowrap px-6 py-4">{{ $password->password }}</td>
-                                        <td class="whitespace-nowrap px-6 py-4">{{ $password->additional_info }}</td>
-                                        <td class="whitespace-nowrap px-6 py-4">
-                                            <form action="{{ route('passwords.destroy', $password) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="bg-red-500 text-white px-4 py-3 rounded font-medium"
+                                    @foreach ($passwords as $password)
+                                        <tr class="border-b dark:border-neutral-500">
+                                            <td class="whitespace-nowrap px-4 py-4 font-medium">{{ $loop->iteration }}</td>
+                                            <td class="whitespace-nowrap px-4 py-4">{{ $password->resource }}</td>
+                                            <td class="whitespace-nowrap px-4 py-4">{{ $password->login }}</td>
+                                            <td class="whitespace-nowrap px-4 py-4">{{ $password->password }}</td>
+                                            <td class="whitespace-nowrap px-4 py-4">{{ $password->additional_info }}</td>
+                                            <td class="whitespace-nowrap px-4 py-4">
+                                                @can('delete', $password)
+                                                    <form action="{{ route('passwords.destroy', $password) }}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit"
+                                                            class="bg-red-500 text-white px-4 py-3 rounded font-medium"
                                                             onclick="return confirm('{{ __('Are you sure you want to delete the entry?') }}')">
-                                                    Delete
-                                                </button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @endforeach
-
+                                                            Delete
+                                                        </button>
+                                                    </form>
+                                                @endcan
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 @else
                                     <p>No records yet on this page.</p>
                                 @endif
