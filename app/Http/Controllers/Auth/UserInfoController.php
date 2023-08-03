@@ -16,8 +16,6 @@ class UserInfoController extends Controller
 
     public function update(Request $request)
     {
-        $user = auth()->user();
-
         $this->validate($request, [
             'newname' => 'required|max:255',
             'newusername' => 'required|max:255',
