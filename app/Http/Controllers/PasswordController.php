@@ -40,7 +40,7 @@ class PasswordController extends Controller
             'additional_info' => $request->additional_info
         ]);
 
-        return redirect('passwords');
+        return redirect('passwords')->with('success', 'New information has been created for the resource');
     }
 
     public function edit(Password $password)
@@ -57,7 +57,7 @@ class PasswordController extends Controller
             'additional_info' => 'nullable|max:1000'
         ]));
 
-        return redirect('passwords');
+        return redirect('passwords')->with('success', 'The resource information has been edited and successfully saved');
     }
 
     public function destroy(Password $password)
@@ -66,6 +66,6 @@ class PasswordController extends Controller
 
         $password->delete();
 
-        return back();
+        return back()->with('success', 'Resource information was successfully deleted');
     }
 }
