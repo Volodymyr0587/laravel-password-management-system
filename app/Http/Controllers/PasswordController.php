@@ -53,7 +53,7 @@ class PasswordController extends Controller
         $password->update($this->validate($request, [
             'resource' => 'required',
             'login' => 'required',
-            'password_to_resource' => 'required',
+            'password' => 'required',
             'additional_info' => 'nullable|max:1000'
         ]));
 

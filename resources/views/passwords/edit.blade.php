@@ -44,7 +44,7 @@
 
                 <div class="mb-4">
                     <label for="password_to_resource" class="sr-only">Password</label>
-                    <input type="text" name="password_to_resource" id="password_to_resource"
+                    <input type="text" name="password" id="password_to_resource"
                         placeholder="Password to resource"
                         class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('password_to_resource')
                     border-red-500 @enderror"
