@@ -4,10 +4,13 @@
     <div class="flex justify-center">
         <div class="w-10/12 bg-white p-6 rounded-lg">
 
+            @php
+                $numberOfPasswords = auth()->user()->passwords->where('created_at', '>=', now()->subDays(7))->count();
+            @endphp
 
             <div class="mt-4">
                 Hello {{ auth()->user()->username }}. You are store
-                <b>{{ auth()->user()->passwords->where('created_at', '>=', now()->subDays(7))->count() }}</b> paswords at
+                <b>{{ $numberOfPasswords }}</b> {{ Str::plural('password', $numberOfPasswords) }} at
                 last week.
                 <p class="mt-4">Passwords were created for: </p>
 
