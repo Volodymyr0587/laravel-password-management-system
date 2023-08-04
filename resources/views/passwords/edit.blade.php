@@ -15,6 +15,7 @@
                 @method('PUT')
 
                 <div class="mb-4">
+                    <p class="p-2 text-yellow-400">Resource</p>
                     <label for="resource" class="sr-only">Resource</label>
                     <input type="text" name="resource" id="resource" placeholder="Website name, application etc"
                         class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('resource')
@@ -29,6 +30,7 @@
                 </div>
 
                 <div class="mb-4">
+                    <p class="p-2 text-yellow-400">Login</p>
                     <label for="login" class="sr-only">Login</label>
                     <input type="text" name="login" id="login" placeholder="Login to resource"
                         class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('login')
@@ -43,6 +45,7 @@
                 </div>
 
                 <div class="mb-4">
+                    <p class="p-2 text-yellow-400">Password</p>
                     <label for="password_to_resource" class="sr-only">Password</label>
                     <input type="text" name="password" id="password_to_resource"
                         placeholder="Password to resource"
@@ -58,7 +61,8 @@
                 </div>
 
                 <div class="mb-4">
-                    <label for="additional_info" class="sr-only">additional_info</label>
+                    <p class="p-2 text-yellow-400">Information</p>
+                    <label for="additional_info" class="sr-only">Additional information</label>
                     <textarea name="additional_info" id="additional_info" cols="30" rows="4" placeholder="Additional information"
                         class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('additional_info')
                     border-red-500 @enderror"
