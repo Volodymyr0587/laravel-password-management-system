@@ -1,4 +1,4 @@
-`git clone <repository_url>`
+`git clone https://github.com/Volodymyr0587/laravel-password-management-system`
 
 `cd laravel-password-management-system`
 
