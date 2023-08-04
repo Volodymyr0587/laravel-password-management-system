@@ -15,15 +15,15 @@
     <nav class="p-5 bg-white flex justify-between mb-6">
         <ul class="flex items-center">
             <li>
-                <a href="{{ route('home') }}" class="p-2 hover:text-blue-500">Home</a>
+                <a href="{{ route('home') }}" class="{{ request()->is('/') ? 'p-2 bg-blue-300 text-sky-900  rounded-xl' : 'p-2 hover:text-blue-500' }}">Home</a>
             </li>
             @auth
                 <li>
-                    <a href="{{ route('passwords') }}" class="p-2 hover:text-blue-500">Passwords</a>
+                    <a href="{{ route('passwords') }}" class="{{ request()->is('passwords') ? 'p-2 bg-blue-300 text-sky-900 rounded-xl' : 'p-2 hover:text-blue-500' }}">Passwords</a>
                 </li>
 
                 <li>
-                    <a href="{{ route('dashboard') }}" class="p-2 hover:text-blue-500">Dashboard</a>
+                    <a href="{{ route('dashboard') }}" class="{{ request()->is('dashboard') ? 'p-2 bg-blue-300 text-sky-900  rounded-xl' : 'p-2 hover:text-blue-500' }}">Dashboard</a>
                 </li>
             @endauth
         </ul>
@@ -31,7 +31,7 @@
         <ul class="flex items-center">
             @auth
                 <li>
-                    <a href="{{ route('userinfo') }}" class="p-2 hover:text-blue-500">{{ auth()->user()->name }}</a>
+                    <a href="{{ route('userinfo') }}" class="{{ request()->is('userinfo') ? 'p-2 bg-blue-300 text-sky-900  rounded-xl' : 'p-2 hover:text-blue-500' }}">{{ auth()->user()->name }}</a>
                 </li>
                 <li>
                     <form action="{{ route('logout') }}" method="POST" class="p-3 inline">
