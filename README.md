@@ -1,5 +1,7 @@
 `git clone <repository_url>`
 
+`cd laravel-password-management-system`
+
 `composer install`
 
 `cp .env.example .env`
