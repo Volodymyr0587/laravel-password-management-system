@@ -33,13 +33,17 @@
                                             <td class="whitespace-nowrap px-4 py-4 font-medium">{{ $loop->iteration }}</td>
                                             <td class="whitespace-nowrap px-4 py-4">{{ $password->resource }}</td>
                                             <td class="whitespace-nowrap px-4 py-4">{{ $password->login }}</td>
-                                            <td class="whitespace-nowrap px-4 py-4">{{ $password->password }}</td>
+                                            <td class="whitespace-nowrap px-4 py-4">
+                                                <span class="password-text">****</span>
+                                                <span class="original-password" style="display: none;">{{ $password->password }}</span>
+                                                <button onclick="togglePassword(this)" class="ml-2 text-blue-500 hover:underline">Show</button>
+                                            </td>
                                             <td class="whitespace-nowrap px-4 py-4">{{ $password->additional_info }}</td>
                                             <td class="whitespace-nowrap px-4 py-4">
                                                 <a href="{{ route('edit', $password->id) }}" class="bg-purple-800 text-white px-4 py-3 rounded font-medium">Edit</a>
                                             <td class="whitespace-nowrap px-4 py-4">
                                                 @can('delete', $password)
-                                                    <form action="{{ route('passwords.destroy', $password) }}" method="POST">
+                                                    <form action="{{ route('passwords.destroy', $password) }}" method="POST" class="mt-4">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit"
@@ -64,3 +68,21 @@
         </div>
     </div>
 @endsection
+
+
+<script>
+    function togglePassword(button) {
+        const passwordText = button.previousElementSibling.previousElementSibling;
+        const originalPassword = button.previousElementSibling;
+
+        if (passwordText.style.display === 'none') {
+            passwordText.style.display = '';
+            originalPassword.style.display = 'none';
+            button.textContent = 'Show';
+        } else {
+            passwordText.style.display = 'none';
+            originalPassword.style.display = '';
+            button.textContent = 'Hide';
+        }
+    }
+</script>
